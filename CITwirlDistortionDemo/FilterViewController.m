@@ -33,7 +33,7 @@
     self.filteredImageView.filter=self.filter;
     self.filteredImageView.contentMode = UIViewContentModeScaleAspectFit;
     self.filteredImageView.clipsToBounds = NO;
-    self.filteredImageView.backgroundColor = [UIColor yellowColor];
+    self.filteredImageView.backgroundColor = [UIColor clearColor];
     [self.filteredImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     [self.view insertSubview:self.filteredImageView atIndex:0];
@@ -43,7 +43,7 @@
     self.filteredImageView1.filter=self.filter;
     self.filteredImageView1.contentMode = UIViewContentModeScaleAspectFit;
     self.filteredImageView1.clipsToBounds = NO;
-    self.filteredImageView1.backgroundColor = [UIColor blueColor];
+    self.filteredImageView1.backgroundColor = [UIColor clearColor];
     [self.filteredImageView1 setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     [self.view insertSubview:self.filteredImageView1 atIndex:0];
