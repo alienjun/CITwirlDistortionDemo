@@ -27,7 +27,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.clipsToBounds = NO;
-        self.layer.masksToBounds=NO;
         self.context= [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
         _cIContext = [CIContext contextWithEAGLContext:self.context];
     }
