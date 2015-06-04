@@ -26,7 +26,7 @@
     self.filter =[CIFilter filterWithName:@"CITwirlDistortion"];
     [self.filter setValue:[CIVector vectorWithX:1 Y:180] forKey:kCIInputCenterKey];
     [self.filter setValue:@190 forKey:kCIInputRadiusKey];
-    [self.filter setValue:@(0) forKey:kCIInputAngleKey];
+    [self.filter setValue:@(0.01) forKey:kCIInputAngleKey];
     
     self.filteredImageView = [[FilteredImageView alloc] initWithFrame:CGRectMake(100, 100, 100, 144)];
     self.filteredImageView.inputImage = self.inputImage;
@@ -55,13 +55,21 @@
 - (IBAction)valueChange:(UISlider *)sender {
 //    NSLog(@"%@", [self.filter attributes]);
     CGFloat f = sender.value -0.5;
+    
+    [self changeFilterProperty:f];
+    
+    NSLog(@"%@",NSStringFromCGRect(self.filteredImageView1.frame));
+}
+
+-(void) changeFilterProperty:(CGFloat)f{
+    if (f==0) {//不能为0
+        f=0.01;
+    }
     [self.filteredImageView.filter setValue:@(f) forKey:kCIInputAngleKey];
     [self.filteredImageView setNeedsDisplay];
     
     [self.filteredImageView1.filter setValue:@(f) forKey:kCIInputAngleKey];
     [self.filteredImageView1 setNeedsDisplay];
-    
-    NSLog(@"%@",NSStringFromCGRect(self.filteredImageView1.frame));
 }
 
 @end
